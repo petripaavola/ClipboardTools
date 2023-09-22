@@ -1,0 +1,2 @@
+# ClipboardTools
+Powershell ClipboardTools Module
