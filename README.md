@@ -30,7 +30,7 @@ Install-Module -Name ClipboardTools -Scope CurrentUser
 Update-Module -Name ClipboardTools
 ```
 
-### Links to Functions
+### Functions
 
 - [ClipboardTools-CopyPaste](#clipboardtools-copypaste)
 - [ClipboardTools-CopyPasteUrl](#clipboardtools-copypasteurl)
