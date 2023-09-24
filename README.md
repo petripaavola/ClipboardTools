@@ -1,13 +1,14 @@
 # Powershell ClipboardTools Module
 
-Welcome to `ClipboardTools`, an exceptional module crafted with some of the finest PowerShell functions designed to enhance and simplify your clipboard management tasks. Developed by Petri Paavola, a seasoned Microsoft MVP - Windows and Devices, the functions in this module offer diverse capabilities ranging from manipulating clipboard contents, validating and formatting various data types (JSON, base64), and much more. Delve deeper to discover the amazing tools available for your daily use.
+Welcome to `ClipboardTools` — a treasure trove of meticulously crafted PowerShell functions designed to supercharge your clipboard management and data manipulation tasks. Developed by Petri Paavola, a seasoned Microsoft MVP - Windows and Devices, this module is equipped with diverse tools, each tailored to cater to specific needs — be it validating and formatting various data formats like JSON, xml, base64, or effortlessly interacting with the Microsoft Graph API.
 
-Especially PowerShell functions,  
-[ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule](#clipboardtools-edgedebuggergraphapiextractpowershellintunemodule)  
-[ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule](#clipboardtools-edgedebuggergraphapiextractpowershellmggraphmodule)  
-, convert a copied PowerShell script from the Edge Debugger into a usable PowerShell script syntax that interacts with the Microsoft Graph API. The goal is to enable users to quickly extract and adapt API calls from the Edge Debugger for use in their scripts.
+Of particular note are the functions:
+- [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule](#clipboardtools-edgedebuggergraphapiextractpowershellintunemodule)
+- [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule](#clipboardtools-edgedebuggergraphapiextractpowershellmggraphmodule)
 
-**These are the helper tools Petri uses daily when creating his famous Intune and Graph API related tools and reports.**
+These gems effortlessly convert copied PowerShell scripts from the Edge Debugger into actionable PowerShell script syntax. They come equipped with a rich array of JSON manipulation techniques, enabling users to swiftly extract, adapt, and harness API calls from the Edge Debugger for their scripts. 
+
+**Dive in and discover the very helper tools that underpin Petri's renowned Intune and Graph API solutions and reports. Your scripting endeavors will never be the same!**
 
 ## Installation 📦
 
@@ -479,6 +480,12 @@ Your clipboard will be replenished with a refashioned, execution-ready PowerShel
 - Microsoft MVP - Windows and Devices
 - [GitHub Project](https://github.com/petripaavola/ClipboardTools)  
 - Email: Petri.Paavola@yodamiitti.fi  
+
+---
+
+### Credits 🤖
+A special shoutout to GPT-4 from OpenAI for assisting in the creation of this documentation page. Yes, even in the world of PowerShell and APIs, AI finds a way to chip in!  
+(And yes, Credits texts were also created by GPT-4 ;)
 
 ---
 
