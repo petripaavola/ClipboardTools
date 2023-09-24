@@ -435,6 +435,13 @@ Install-Module -Name Microsoft.Graph.Intune -Scope CurrentUser
 ```
 
 **Usage**:
+- Open Edge and go www page you want to extract Graph API call (or actually any REST API calls) from.  
+- Any Intune management page is good to start with.  
+- **F12** opens Edge Debugger
+- In Edge Debugger open Network tab
+- Click link to page where to capture network traffic
+- Find network call you are interested on and right click on it and select "**Copy -> Copy as Powershell**"
+
 ```powershell
 ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule
 ```
@@ -471,6 +478,12 @@ Install-Module Microsoft.Graph -Scope CurrentUser
 ```
 
 **Usage**:
+- Open Edge and go www page you want to extract Graph API call (or actually any REST API calls) from.  
+- Any Intune management page is good to start with.  
+- **F12** opens Edge Debugger
+- In Edge Debugger open Network tab
+- Click link to page where to capture network traffic
+- Find network call you are interested on and right click on it and select "**Copy -> Copy as Powershell**"
 ```powershell
 ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule
 ```
