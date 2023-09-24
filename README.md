@@ -6,9 +6,17 @@ Of particular note are the functions:
 - [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule](#clipboardtools-edgedebuggergraphapiextractpowershellintunemodule)
 - [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule](#clipboardtools-edgedebuggergraphapiextractpowershellmggraphmodule)
 
-These gems effortlessly convert copied PowerShell scripts from the Edge Debugger into actionable PowerShell script syntax. They come equipped with a rich array of JSON manipulation techniques, enabling users to swiftly extract, adapt, and harness API calls from the Edge Debugger for their scripts. 
+These gems effortlessly convert copied PowerShell scripts from the Edge Debugger into actionable PowerShell script syntax. 
 
 **Dive in and discover the very helper tools that underpin Petri's renowned Intune and Graph API solutions and reports. Your scripting endeavors will never be the same!**
+
+## Features
+Especially, the `ClipboardTools` module shines when you're working with Graph Explorer, Graph API, JSON files, and other data formats. All the operations are processed through the clipboard, ensuring seamless integration into your workflows.
+
+- Clipboard management: Copy, paste, and manipulate clipboard contents with ease.
+- Data validation: Validate JSON, XML, and even PowerShell syntax directly from your clipboard.
+- Data conversion: Convert between different data formats, like converting to and from Base64.
+- Graph API integration: Extract and adapt API calls from Edge Debugger for use in your scripts with Graph API.
 
 ## Installation 📦
 
