@@ -29,6 +29,10 @@ Install-Module -Name ClipboardTools -Scope CurrentUser
 # If you already have the module and want to update
 Update-Module -Name ClipboardTools
 ```
+### Supported Powershell versions
+There are few commands which are not supported in Powershell 7. **For now this module is officially supported only in Windows Powershell.**
+
+Next module version will have Powershell 7 uncompatible commands fixed.
 
 ### Functions
 
