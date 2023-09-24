@@ -30,7 +30,7 @@ Install-Module -Name ClipboardTools -Scope CurrentUser
 Update-Module -Name ClipboardTools
 ```
 
-### Table of Contents
+### Links to Functions
 
 - [ClipboardTools-CopyPaste](#clipboardtools-copypaste)
 - [ClipboardTools-CopyPasteUrl](#clipboardtools-copypasteurl)
@@ -486,15 +486,23 @@ Your clipboard will be replenished with a refashioned, execution-ready PowerShel
 **Petri Paavola**  
 - Senior Modern Management Principal  
 - Microsoft MVP - Windows and Devices
-- [GitHub Project](https://github.com/petripaavola/ClipboardTools)  
 - Email: Petri.Paavola@yodamiitti.fi  
 
 ---
 
-### Credits 🤖
-A special shoutout to GPT-4 from OpenAI for assisting in the creation of this documentation page. Yes, even in the world of PowerShell and APIs, AI finds a way to chip in!  
-(And yes, Credits texts were also created by GPT-4 ;)
+## Contributions
+
+Contributions are welcome! If you find any issues or have suggestions, please open an issue in the [GitHub repository](https://github.com/petripaavola/ClipboardTools).
+
+## License
+
+This project is licensed under the MIT License. Check out the [license file](https://github.com/petripaavola/ClipboardTools/blob/main/LICENSE) for more details.
+
+### Acknowledgments 🤖
+A special shoutout to GPT-4 from OpenAI for assisting in the creation of this GitHub documentation page. Yes, even in the world of PowerShell and APIs, AI finds a way to chip in!  
+
+And yes, Acknowledgments texts were also created by GPT-4 :)
 
 ---
 
-© 2023 Petri Paavola
+© 2023 Petri Paavola - Microsoft MVP - Windows and Devices
