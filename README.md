@@ -1,6 +1,6 @@
 # Powershell ClipboardTools Module
 
-Welcome to `ClipboardTools` — a treasure trove of meticulously crafted PowerShell functions designed to supercharge your clipboard management and data manipulation tasks. Developed by Petri Paavola, a seasoned Microsoft MVP - Windows and Devices, this module is equipped with diverse tools, each tailored to cater to specific needs — be it validating and formatting various data formats like JSON, xml, base64, or effortlessly interacting with the Microsoft Graph API.
+Welcome to `ClipboardTools` — a treasure trove of meticulously crafted PowerShell functions designed to supercharge your Graph API scripting and data manipulation tasks. Developed by Petri Paavola, a seasoned Microsoft MVP - Windows and Devices, this module is equipped with diverse tools, each tailored to cater to specific needs — be it validating and formatting various data formats like JSON, xml, base64, or effortlessly interacting with the Microsoft Graph API.
 
 Of particular note are the functions:
 - [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule](#clipboardtools-edgedebuggergraphapiextractpowershellintunemodule)
