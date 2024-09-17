@@ -1,12 +1,12 @@
 # Powershell ClipboardTools Module
 
-Welcome to `ClipboardTools` — a treasure trove of meticulously crafted PowerShell functions designed to supercharge your Graph API scripting and data manipulation tasks. Developed by Petri Paavola, a seasoned Microsoft MVP - Windows and Devices, this module is equipped with diverse tools, each tailored to cater to specific needs — be it validating and formatting various data formats like JSON, xml, base64, or effortlessly interacting with the Microsoft Graph API.
+Welcome to `ClipboardTools` — a treasure trove of meticulously crafted PowerShell functions designed to supercharge your Graph API scripting and data manipulation tasks. Developed by Petri Paavola, a seasoned Microsoft MVP - Windows and Intune, this module is equipped with diverse tools, each tailored to cater to specific needs — be it validating and formatting various data formats like JSON, xml, base64, or effortlessly interacting with the Microsoft Graph API.
 
-Of particular note are the functions:
-- [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule](#clipboardtools-edgedebuggergraphapiextractpowershellintunemodule)
-- [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule](#clipboardtools-edgedebuggergraphapiextractpowershellmggraphmodule)
+Of particular note is the function:
+- [ClipboardTools-EdgeDebuggerMGGraphPowerShellScript](#clipboardtools-edgedebuggermggraphpowershellscript)
 
-These gems effortlessly convert copied PowerShell scripts from the Edge Debugger into actionable PowerShell script syntax. 
+
+This gem effortlessly convert copied PowerShell scripts from the Edge Debugger into actionable PowerShell script syntax. 
 
 **Dive in and discover the very helper tools that underpin Petri's renowned Intune and Graph API solutions and reports. Your scripting endeavors will never be the same!**
 
@@ -32,7 +32,7 @@ Update-Module -Name ClipboardTools
 ### Supported Powershell versions
 There are few commands which are not supported in Powershell 7. **For now this module is officially supported only in Windows Powershell.**
 
-Next module version will have Powershell 7 uncompatible commands fixed.
+Some next module version will have Powershell 7 uncompatible commands fixed.
 
 ### Functions
 
@@ -48,9 +48,11 @@ Next module version will have Powershell 7 uncompatible commands fixed.
 - [ClipboardTools-ValidateXml](#clipboardtools-validatexml)
 - [ClipboardTools-ValidatePowershellSyntax](#clipboardtools-validatepowershellsyntax)
 - [ClipboardTools-ConvertFromBase64](#clipboardtools-convertfrombase64)
+- [ClipboardTools-ConvertToBase64](#clipboardtools-converttobase64)
+- [ClipboardTools-ConvertStringToHex](#clipboardtools-convertstringtohex)
+- [ClipboardTools-ConvertHexToString](#clipboardtools-converthextostring)
 - [ClipboardTools-ObjectifyIntuneJsonReport](#clipboardtools-objectifyintunejsonreport)
-- [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule](#clipboardtools-edgedebuggergraphapiextractpowershellintunemodule)
-- [ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule](#clipboardtools-edgedebuggergraphapiextractpowershellmggraphmodule)
+- [ClipboardTools-EdgeDebuggerMGGraphPowerShellScript](#clipboardtools-edgedebuggermggraphpowershellscript)
 
 ---
 
@@ -384,6 +386,95 @@ Interprets and decodes base64 text from the clipboard.
 Places the decoded text back onto the clipboard. Using the `-PassThru` parameter, the decoded base64 text is also sent to the PowerShell pipeline.
 
 ---
+### ClipboardTools-ConvertToBase64
+
+**Synopsis**:  
+🔍 Need to turn your clipboard text into base64 encoding? The `ClipboardTools-ConvertToBase64` function makes this process seamless, converting clear text from your clipboard into a base64 string and copying it back to your clipboard.
+
+**Description**:  
+The `ClipboardTools-ConvertToBase64` function converts any plain text stored in your clipboard to a base64 encoded string. After the conversion, the base64 string is copied back to the clipboard, ensuring you can easily paste the encoded text wherever needed. Additionally, the function can output the base64 string directly to the PowerShell pipeline using the `-PassThru` parameter, which is helpful for saving the result to a variable or for further processing.
+
+**Usage**:
+```powershell
+ClipboardTools-ConvertToBase64
+```
+```powershell
+$Base64String = ClipboardTools-ConvertToBase64 -PassThru
+```
+
+#### Parameters:  
+- `-PassThru`: Use this switch to output the base64 encoded string to the PowerShell pipeline for further processing or to save it to a variable.
+
+#### Inputs:  
+- Reads clear text from the clipboard and converts it to a base64 string.
+
+#### Outputs:  
+- The base64 encoded string is copied to the clipboard.
+- If the `-PassThru` parameter is used, the base64 encoded string is also sent to the PowerShell pipeline.
+
+#### Notes:  
+This function is useful for encoding clear text in base64 format, especially when dealing with APIs, scripts, or other use cases where base64 encoding is required. Always ensure your clipboard contains valid text before running the function.
+
+---
+### ClipboardTools-ConvertStringToHex
+
+**Synopsis**:  
+🔍 Need to convert clipboard text into a hexadecimal representation? The `ClipboardTools-ConvertStringToHex` function converts text from your clipboard into a hexadecimal string using either UTF-8 or UTF-16 encoding, with options for output formats like comma-separated values or a format suitable for Windows registry (Regedit).
+
+**Description**:  
+The `ClipboardTools-ConvertStringToHex` function retrieves text from the clipboard and converts it into a hexadecimal string. You can choose between UTF-8 or UTF-16 encoding, with UTF-16 as the default if no encoding is specified. The function also offers output in a comma-separated format or a format suitable for Windows registry modifications. The converted hexadecimal string is copied back to the clipboard for easy access.
+
+**Usage**:
+```powershell
+ClipboardTools-ConvertStringToHex -UTF8
+```
+```powershell
+ClipboardTools-ConvertStringToHex -UTF16 -CommaSeparated
+```
+```powershell
+ClipboardTools-ConvertStringToHex -Regedit
+```
+
+#### Parameters:  
+- `-UTF8`: Converts the string to a hexadecimal string using UTF-8 encoding.
+- `-UTF16`: Converts the string to a hexadecimal string using UTF-16 encoding (default).
+- `-CommaSeparated`: Outputs the hexadecimal string as a comma-separated string.
+- `-Regedit`: Outputs the hexadecimal string in a format suitable for the Windows registry, prepending `hex(2):` to the output.
+
+#### Inputs:  
+- Reads text from the clipboard and converts it into a hexadecimal string.
+
+#### Outputs:  
+- The converted hexadecimal string is copied to the clipboard.
+
+#### Notes:  
+- If no encoding is specified, UTF-16 encoding will be used by default.
+
+---
+### ClipboardTools-ConvertHexToString
+
+**Synopsis**:  
+🔍 Have a hexadecimal string in your clipboard that you need to convert back to readable text? The `ClipboardTools-ConvertHexToString` function retrieves a hexadecimal string from the clipboard, cleans it up, and converts it back into its original text representation.
+
+**Description**:  
+The `ClipboardTools-ConvertHexToString` function reads a hexadecimal string from the clipboard, removes unwanted characters, and converts it into a readable text string. It automatically detects whether the string is encoded in UTF-8 or UTF-16LE based on byte patterns and then decodes it accordingly. The function handles both single-line and multi-line clipboard content and places the decoded string back into the clipboard for easy use.
+
+**Usage**:
+```powershell
+ClipboardTools-ConvertHexToString
+```
+
+#### Inputs:  
+- Reads a hexadecimal string from the clipboard and converts it into a readable text string.
+
+#### Outputs:  
+- The converted text string is copied back to the clipboard.
+
+#### Notes:  
+- This function automatically detects whether the clipboard contents are in UTF-8 or UTF-16LE encoding and decodes them accordingly.
+- The function handles single-line and multi-line clipboard content and removes unnecessary characters.
+
+---
 ### ClipboardTools-ObjectifyIntuneJsonReport
 
 **Synopsis**:  
@@ -412,97 +503,119 @@ Processes (Intune report format) JSON data taken directly from the clipboard.
 If the `-PassThru` parameter is utilized, the transformed Intune report JSON data is sent directly to the PowerShell pipeline.
 
 ---
-### ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule
+### ClipboardTools-EdgeDebuggerMGGraphPowerShellScript
 
 **Synopsis**:  
-🔍 Directly interact with the Microsoft Graph API without the fuss! Use the `ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule` to convert Edge Debugger's "Save as PowerShell" script to real, working PowerShell script syntax.
+🔍 Convert Edge Debugger's "Save as PowerShell" export into actionable Microsoft Graph API commands! The `ClipboardTools-EdgeDebuggerMGGraphPowerShellScript` function helps transform the exported script into a "real" PowerShell script using the Microsoft.Graph.Authentication PowerShell module.
 
 **Description**:  
-The `ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule` function assists you in transforming the Edge Debugger's "Save as PowerShell" script into an actual, operational PowerShell script. This tool is invaluable when extracting or inputting data to the Microsoft Graph API.
+The `ClipboardTools-EdgeDebuggerMGGraphPowerShellScript` function converts the PowerShell script generated from Edge Debugger's "Save as PowerShell" option into a fully functional PowerShell script that can interact with the Microsoft Graph API. This new version generates PowerShell code specifically for use with the `Microsoft.Graph.Authentication` module, enabling you to replicate the exact Graph API calls captured in the Edge Debugger. The resulting PowerShell code is then copied back to the clipboard, allowing you to paste it into your script editor or console.
 
-Upon processing, the newly crafted PowerShell code, which is compatible with the `Microsoft.Graph.Intune` PowerShell module, is copied back to your clipboard, ready for execution or further editing.
+This function parses essential parts of the Edge Debugger script, such as:
+- The **URI** of the Graph API endpoint.
+- The **HTTP method** (e.g., GET, POST, PATCH, DELETE).
+- The **Body** (if applicable) for POST, PATCH, and PUT requests.
 
-**Features**:  
-   - **Purpose**: Converts Edge Debugger's clipboard saved PowerShell script to a usable script tailored for Microsoft's Intune PowerShell module.
-   - **Operation**:
-     - Reads clipboard content.
-     - Distills the URI, Method (HTTP verb), and Body from the script.
-     - Depending on the Method and the presence of a Body, crafts a new script to connect to the Graph API via the Microsoft Intune module. This process includes establishing a connection, forming the API request, and outputting the results.
-     - Sends the polished script to the clipboard, prepped to be pasted into an editor or console.
-
-**Note**: To successfully execute the resulting script, ensure you've installed the Intune PowerShell Module.
-
-**Prerequisites**:  
-To execute the created PowerShell code, you need to install the Intune PowerShell Module:
-```powershell
-Install-Module -Name Microsoft.Graph.Intune -Scope CurrentUser
-```
-
-**Usage**:
-- Open Edge and go www page you want to extract Graph API call (or actually any REST API calls) from.  
-- Any Intune management page is good to start with.  
-- **F12** opens Edge Debugger
-- In Edge Debugger open Network tab
-- Click link to page where to capture network traffic
-- Find network call you are interested on and right click on it and select "**Copy -> Copy as Powershell**"
-
-```powershell
-ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellIntuneModule
-```
-
-**Inputs**:  
-The function reads the Edge Debugger "Save as PowerShell" script directly from your clipboard.
-
-**Outputs**:  
-The transformed, runnable PowerShell code is placed back into your clipboard.
-
----
-### ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule
-
-**Synopsis**:  
-🔍 Simplify your Microsoft Graph API interactions in PowerShell! With the `ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule`, convert Edge Debugger's "Save as PowerShell" scripts into real, actionable PowerShell commands.
-
-**Description**:  
-The `ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule` function acts as an enabler, converting scripts you extract from the Edge Debugger into fully-fledged PowerShell code. This is more than just a translation – it prepares the code to perform Graph API operations, mirroring those captured in the Debugger.
-
-Importantly, the generated code is designed for seamless integration with the `Microsoft.Graph` PowerShell module. Ensure the Microsoft.Graph module is at your disposal before executing the crafted script.
+The output is tailored to work seamlessly with the Microsoft Graph PowerShell SDK. It includes handling for potential issues with POST requests that may not immediately return data, suggesting workarounds using `-OutputFilePath` to capture the response.
 
 **Key Features**:
-   - **Purpose**: Transforms Edge Debugger's exported PowerShell scripts into actionable scripts, optimized for the Microsoft Graph PowerShell module.
-   - **Process**:
-     - Captures clipboard content.
-     - Identifies the URI, Method (HTTP verb), and Body from the acquired script.
-     - Forges a new script connecting to the Graph API via the Microsoft Graph module. This encompasses establishing the connection, navigating certain quirks like POST requests sometimes not producing output, creating the API request, and rendering the results.
-     - Transmits the newly minted script back to the clipboard.
-
+- **Purpose**: Converts the Edge Debugger PowerShell export into a script compatible with the Microsoft Graph Authentication PowerShell module.
+- **Process**:
+  - Extracts the clipboard content from the Edge Debugger.
+  - Parses the URI, HTTP Method, and Body (if applicable).
+  - Generates PowerShell commands to perform the exact Graph API request using `Invoke-MgGraphRequest`.
+  - Automatically adds the necessary scopes for Microsoft Graph API authentication (`Connect-MgGraph`).
+  - Outputs the generated script back to the clipboard, ready for immediate use.
+  
 **Prerequisites**:  
-For the generated PowerShell script to operate flawlessly, the installation of the `Microsoft.Graph` module is a prerequisite. Here's the command to add it:
+To execute the generated PowerShell script, ensure that the `Microsoft.Graph.Authentication` module is installed. Here's the command to install it:
 ```powershell
-Install-Module Microsoft.Graph -Scope CurrentUser
+Install-Module -Name Microsoft.Graph.Authentication -Scope CurrentUser
 ```
 
 **Usage**:
-- Open Edge and go www page you want to extract Graph API call (or actually any REST API calls) from.  
-- Any Intune management page is good to start with.  
-- **F12** opens Edge Debugger
-- In Edge Debugger open Network tab
-- Click link to page where to capture network traffic
-- Find network call you are interested on and right click on it and select "**Copy -> Copy as Powershell**"
+1. Open Edge and navigate to a web page where you want to extract a Graph API (or any REST API) call.
+2. Open the Edge Debugger by pressing **F12** and navigate to the **Network** tab.
+3. Perform an action that triggers a network request (such as loading a page or submitting a form).
+4. Right-click on the network call you're interested in and select "**Copy -> Copy as PowerShell**".
+5. Run the following command to transform the copied script:
 ```powershell
-ClipboardTools-EdgeDebuggerGraphAPIExtractPowershellMGGraphModule
+ClipboardTools-EdgeDebuggerMGGraphPowerShellScript
 ```
+6. Paste the generated script into your editor or console.
 
 **Inputs**:  
-Feeds on the "Save as PowerShell" script directly copied from Edge Debugger and stored in your clipboard.
+Reads the PowerShell script exported from Edge Debugger and stored in the clipboard.
 
 **Outputs**:  
-Your clipboard will be replenished with a refashioned, execution-ready PowerShell script.
+The function generates a PowerShell script ready for execution, based on the Microsoft Graph API call from Edge Debugger. The script is copied to the clipboard.
+
+**Example Code for GET Request**:
+```powershell
+# Connect to Graph API using Microsoft Graph module
+
+# Install Microsoft.Graph.Authentication module with command
+# Install-Module -Name Microsoft.Graph.Authentication -Scope CurrentUser
+#Connect-MgGraph
+
+Connect-MgGraph -Scopes "DeviceManagementManagedDevices.Read.All", "DeviceManagementApps.Read.All", "DeviceManagementConfiguration.Read.All", "User.Read.All", "Group.Read.All", "GroupMember.Read.All", "Directory.Read.All"
+
+$Uri = "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices"
+
+# Get data from Graph API
+$MgGraphRequest = Invoke-MgGraphRequest -Uri $Uri -Method 'GET' -OutputType PSObject
+
+if($MgGraphRequest) {
+    # Print results
+    # Usually you want to check values from $MgGraphRequest.value
+    Write-Host "Print variable MgGraphRequest values:"
+    $MgGraphRequest
+} else {
+    Write-Host "Did not get any results from Graph API!" -ForegroundColor Yellow
+}
+```
+
+**Example Code for POST Request**:
+```powershell
+# Connect to Graph API using Microsoft Graph module
+
+# Install Microsoft.Graph.Authentication module with command
+# Install-Module -Name Microsoft.Graph.Authentication -Scope CurrentUser
+#Connect-MgGraph
+
+Connect-MgGraph -Scopes "DeviceManagementManagedDevices.Read.All", "DeviceManagementApps.Read.All", "DeviceManagementConfiguration.Read.All", "User.Read.All", "Group.Read.All", "GroupMember.Read.All", "Directory.Read.All"
+
+$Uri = "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices"
+
+$Body = @{
+    "@odata.type" = "#microsoft.graph.managedDevice"
+    "deviceName" = "TestDevice"
+} | ConvertTo-Json
+
+# Note: POST requests may not immediately return data. Workaround:
+$OutputFilePath = "$($pwd.path)/MgGraphRequest_$(Get-Random).json"
+$MgGraphRequest = Invoke-MgGraphRequest -Uri $Uri -Body $Body.ToString() -Method 'POST' -OutputFilePath $OutputFilePath
+
+# Read and convert JSON data from the temporary text file
+$MgGraphRequest = Get-Content $OutputFilePath -Raw | ConvertFrom-Json
+
+# Remove temporary file
+Remove-Item -Path $OutputFilePath
+
+if($MgGraphRequest) {
+    # Print results
+    Write-Host "Print variable MgGraphRequest values:"
+    $MgGraphRequest
+} else {
+    Write-Host "Did not get any results from Graph API!" -ForegroundColor Yellow
+}
+```
 
 ---
 ## Author
 **Petri Paavola**  
 - Senior Modern Management Principal  
-- Microsoft MVP - Windows and Devices
+- Microsoft MVP - Windows and Intune
 - Email: Petri.Paavola@yodamiitti.fi  
 
 ---
@@ -516,10 +629,11 @@ Contributions are welcome! If you find any issues or have suggestions, please op
 This project is licensed under the MIT License. Check out the [license file](https://github.com/petripaavola/ClipboardTools/blob/main/LICENSE) for more details.
 
 ### Acknowledgments 🤖
-A special shoutout to GPT-4 from OpenAI for assisting in the creation of this GitHub documentation page. Yes, even in the world of PowerShell and APIs, AI finds a way to chip in!  
 
-And yes, Acknowledgments texts were also created by GPT-4 :)
+A special shoutout to GPT-4 from OpenAI for being a trusty co-pilot in the creation of this GitHub documentation page. From PowerShell scripts to Graph API calls, AI lent a hand in refining and organizing every detail.
+
+And yes, even the Acknowledgments were crafted by GPT-4 – AI doesn’t miss a beat, not even for the credits!
 
 ---
 
-© 2023 Petri Paavola - Microsoft MVP - Windows and Devices
+© 2024 Petri Paavola - Microsoft MVP - Windows and Intune
