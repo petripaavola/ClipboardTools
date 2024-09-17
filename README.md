@@ -130,9 +130,6 @@ Get-Service | ClipboardTools-PasteObjectToExcel
 $myData | ClipboardTools-PasteObjectToExcel
 ```
 
-#### Parameters:  
-- `-PowershellObjects`: Specifies the objects to be converted to tab-delimited CSV format. These objects can be passed via the pipeline.
-
 #### Inputs:  
 - Accepts PowerShell objects from the pipeline. The objects are converted to a tab-delimited CSV format.
 
